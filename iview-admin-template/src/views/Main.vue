@@ -8,15 +8,12 @@
                 :shrink="shrink"
                 :menu-list="menuList">
                 <div slot="top" class="logo-con">
-                    <!-- logo菜单显示 -->
-                 <!--  <img v-show="!shrink"  src="../images/logo.jpg" key="max-logo" /> 
-                  <img v-show="shrink" src="../images/logo-min.jpg" key="min-logo" />  -->
                     <div class="navicon-con">
                     <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)',color:'#fff',position:'relative',left:shrink ? ' -5px':'-20px'}" type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
                     </Button>
                 </div>
-                </div>
+             </div>
             </shrinkable-menu>
         </div>
         <div class="main-header-con" :style="{paddingLeft: shrink?'0px':'0px'}">
@@ -27,6 +24,11 @@
                         <Icon type="navicon" size="32"></Icon>
                     </Button>
                 </div> -->
+                <div class="header-middle-con">
+                    <div class="main-breadcrumb">
+                        <breadcrumb-nav :currentPath="currentPath"></breadcrumb-nav>
+                    </div>
+                </div>
                 <a href="javascript:void(0)" class="ybli">易保理{{accessCode}}</a>
                 <!-- 显示右侧登录后的信息 -->
                 <div class="header-avator-con" style="">
@@ -56,11 +58,13 @@
 import Cookies from 'js-cookie';
 import shrinkableMenu from './main-components/shrinkable-menu/shrinkable-menu.vue';
 import task from './task/task.vue';
+import breadcrumbNav from './main-components/breadcrumb-nav.vue';
+import util from '@/libs/util.js';
 export default {
     components: {
-        shrinkableMenu
-        
-    },
+        shrinkableMenu,
+        breadcrumbNav
+      },
     data () {
         return {
             shrink: false,
@@ -71,11 +75,15 @@ export default {
     computed: {
         menuList () {
             return this.$store.state.app.menuList;
-        }
+        },
+        currentPath () {
+            return this.$store.state.app.currentPath; // 当前面包屑数组
+        },
     },
     methods: {
         init () {
-            this.userName = Cookies.get('user');
+          this.userName = Cookies.get('user');
+            
         },
         toggleClick () {
             this.shrink = !this.shrink;
@@ -109,6 +117,7 @@ export default {
     },
     mounted () {
         this.init();
+
     }
 };
 </script>
