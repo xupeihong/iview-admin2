@@ -4,8 +4,8 @@
 	</div>
 </template>
 <script>
-	export default {
-		name:'borrow',
+	export default{
+		name:'lend',
 		data(){
 			return{
 				 columns7: [
@@ -110,7 +110,7 @@
                                             this.remove(params.index)
                                         }
                                     }
-                                }, '审批')
+                                }, '放款')
                             ]);
                         }
                     }
@@ -128,7 +128,7 @@
                         usetime:'2018-5-8',
                         backmoney:2000,
                         fee:200,
-                        state:'待审批'
+                        state:'审批通过待放款'
                     },
                     {
                         channel: '亿海蓝erew',
@@ -142,7 +142,7 @@
                         usetime:'2018-5-8',
                         backmoney:2000,
                         fee:200,
-                        state:'待审批'
+                        state:'审批通过待放款'
                     },
                     {
                         channel: '亿海蓝fds',
@@ -156,7 +156,7 @@
                         usetime:'2018-5-8',
                         backmoney:2000,
                         fee:200,
-                        state:'待审批'
+                        state:'审批通过待放款'
                     }
                 ]
 			}

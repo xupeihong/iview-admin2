@@ -4,18 +4,30 @@
         <TabPane :label="label" name="name1">
         	<borrow/>
         </TabPane>
-        <TabPane :label="label2" name="name2">标签二的内容</TabPane>
-        <TabPane :label="label3" name="name3">标签三的内容</TabPane>
-        <TabPane :label="label4" name="name4">标签三的内容</TabPane>
+        <TabPane :label="label2" name="name2">
+            <lend/>
+        </TabPane>
+        <TabPane :label="label3" name="name3">
+            <limit/>
+        </TabPane>
+        <TabPane :label="label4" name="name4">
+            <confirm/>
+        </TabPane>
     </Tabs>
 	</div>
 </template>
 <script>
 import borrow from './borrow.vue'
+import lend from './lend.vue'
+import limit from './limit.vue'
+import confirm from './confirm.vue'
 	export default{
 		name:'task',
 		components:{
-			borrow
+			borrow,
+            lend,
+            limit,
+            confirm
 		},
 		data(){ 
 			return{
@@ -34,7 +46,7 @@ import borrow from './borrow.vue'
                         h('span', '放款'),
                         h('Badge', {
                             props: {
-                                count: 3
+                                count: 1
                             }
                         })
                     ])
@@ -44,7 +56,7 @@ import borrow from './borrow.vue'
                         h('span', '逾期管理'),
                         h('Badge', {
                             props: {
-                                count: 3
+                                count: 4
                             }
                         })
                     ])
@@ -54,7 +66,7 @@ import borrow from './borrow.vue'
                         h('span', '还款确认'),
                         h('Badge', {
                             props: {
-                                count: 3
+                                count: 5
                             }
                         })
                     ])

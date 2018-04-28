@@ -27,13 +27,13 @@
                         <Icon type="navicon" size="32"></Icon>
                     </Button>
                 </div> -->
-                <a href="javascript:void(0)" class="ybli">易保理</a>
+                <a href="javascript:void(0)" class="ybli">易保理{{accessCode}}</a>
                 <!-- 显示右侧登录后的信息 -->
                 <div class="header-avator-con" style="">
                     <div class="user-dropdown-menu-con" style="width:300px;">
                         <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
                            <a href="javascript:void(0)" style="color:#fff;height:22px;">
-                        <span class="main-user-name" style="font-size:20px;width:156px;">您好，{{ userName }}</span>
+                        <span class="main-user-name" style="font-size:20px;width:200px;">您好，{{ userName }}</span>
                            </a>                    
                         <a href="#" @click="handleOpen">
                            <span style="color:#fff;margin-left:40px;font-size:20px;position:relative;top:5px;" name="loginout" >退出</span>
@@ -64,7 +64,8 @@ export default {
     data () {
         return {
             shrink: false,
-            userName: ''
+            userName: '',
+            accessCode: parseInt(Cookies.get('access'))
         };
     },
     computed: {

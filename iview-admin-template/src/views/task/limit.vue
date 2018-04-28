@@ -1,14 +1,14 @@
 <template>
 	<div>
-		 <Table border :columns="columns7" :data="data6"></Table>
+		<Table border :columns="columns7" :data="data6"></Table>
 	</div>
 </template>
 <script>
-	export default {
-		name:'borrow',
+	export default{
+		name:'limit',
 		data(){
 			return{
-				 columns7: [
+               columns7: [
                     {
                         title: '渠道',
                         key: 'channel',
@@ -42,37 +42,46 @@
                         title: '合同编号',
                         key: 'pid'
                     },
-                    {
-                        title: '申请时间',
-                        key: 'stime'
-                    },
+                    
                     {
                         title: '申请金额',
                         key: 'smoney'
                     },
-                    {
-                        title: '可用额度',
-                        key: 'avablemoney'
-                    },
-                    {
-                        title: '融资期限',
-                        key: 'timelimt'
-                    },
-                    {
-                        title: '还款方式',
-                        key: 'way'
-                    },
-                    {
-                        title: '用款时间',
-                        key: 'usetime'
-                    },
+                    
                     {
                         title: '应还金额',
                         key: 'backmoney'
                     },
                     {
-                        title: '服务费',
-                        key: 'fee'
+                        title: '应还本金',
+                        key: 'backbmoney'
+                    },                
+                    {
+                        title: '应还利息',
+                        key: 'backproy'
+                    },
+                    
+                    {
+                        title: '应付罚息',
+                        key: 'payproy'
+                    },
+                    {
+                        title: '用款日期',
+                        key: 'usetime'
+                    },
+
+                    {
+                        title: '应还款日期',
+                        key: 'btime'
+                    },
+
+                    {
+                        title: '实还款日期',
+                        key: 'ttime'
+                    },
+                    {
+                        title: '剩余天数',
+                        key: 'tday'
                     },
                     {
                         title: '状态',
@@ -99,18 +108,8 @@
                                            
                                         }
                                     }
-                                }, '详情'),
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.remove(params.index)
-                                        }
-                                    }
-                                }, '审批')
+                                }, '详情')
+                                
                             ]);
                         }
                     }
@@ -120,43 +119,46 @@
                         channel: '亿海蓝',
                         cname: '亿海蓝公司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
                         smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
                         backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backbmoney:2000,
+                        backproy:200,
+                        payproy:200,
+                        usetime:'2018-5-8',
+                        btime:'2018-2-23',
+                        ttime:'2018-2-25',
+                        tday:'逾期1天',
+                        state:'未还款'
                     },
                     {
-                        channel: '亿海蓝erew',
-                        cname: '亿海蓝321公司',
+                        channel: 're亿海蓝',
+                        cname: '亿fds海蓝公司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
                         smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
                         backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backbmoney:2000,
+                        backproy:200,
+                        payproy:200,
+                        usetime:'2018-5-8',
+                        btime:'2018-2-23',
+                        ttime:'2018-2-25',
+                        tday:'逾期12天',
+                        state:'未还款'
                     },
                     {
-                        channel: '亿海蓝fds',
-                        cname: '亿海蓝公司32',
+                        channel: '亿海蓝3',
+                        cname: '43亿海蓝公司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
                         smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
                         backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backbmoney:2000,
+                        backproy:200,
+                        payproy:200,
+                        usetime:'2018-5-8',
+                        btime:'2018-2-23',
+                        ttime:'2018-2-25',
+                        tday:'逾期4天',
+                        state:'未还款'
                     }
                 ]
 			}

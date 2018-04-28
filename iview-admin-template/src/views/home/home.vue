@@ -3,7 +3,7 @@
 </style>
 <template>
     <div class="home-main">
-        
+        <p>首页测试</p>
     </div>
 </template>
 

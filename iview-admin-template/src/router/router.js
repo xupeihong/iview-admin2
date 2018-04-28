@@ -42,6 +42,7 @@ export const otherRouter = {
     path: '/',
     name: 'otherRouter',
     component: Main,
+    redirect:'/home',
     children: [
         { path: 'home', title: {i18n: 'home'}, name: 'home_index', component: resolve => { require(['@/views/task/task.vue'], resolve); } }
     ]
@@ -54,6 +55,7 @@ export const appRouter = [
         icon: 'ios-paper',
         title: '我的任务',
         name: 'task',
+        access: [0,1],
         component: Main,
         children: [
             { path: 'index', title: '我的任务', name: 'task_index', component: resolve => { require(['@/views/task/task.vue'], resolve); } }
@@ -63,6 +65,7 @@ export const appRouter = [
         path: '/group',
         icon: 'ios-folder',
         name: 'group',
+        access: [0,1],
         title: '客户管理',
         component: Main,
         children: [
@@ -94,6 +97,7 @@ export const appRouter = [
         icon:'ios-paper',
         title:'业务管理',
         name:'business',
+        access: [0,1],
         component:Main,
         children:[
              {
@@ -120,9 +124,10 @@ export const appRouter = [
         ]
     },
     {
-      path:'/StaticAnaly',
+        path:'/StaticAnaly',
         icon:'ios-paper',
         title:'统计分析',
+        access:0,
         name:'StaticAnaly',
         component:Main,
         children:[
@@ -131,6 +136,7 @@ export const appRouter = [
                 icon: 'ios-paper-outline',
                 name: 'cusTotal',
                 title: '客户台账总账',
+                access: 0,
                 component: resolve => { require(['@/views/StaticAnaly/cusTotal/cusTotal.vue'], resolve); }
             },
             {
@@ -138,6 +144,7 @@ export const appRouter = [
                 icon: 'ios-paper-outline',
                 name: 'cusDetail',
                 title: '客户台账明细',
+                access: 0,
                 component: resolve => { require(['@/views/StaticAnaly/cusDetail/cusDetail.vue'], resolve); }
             }
         ]
@@ -147,10 +154,11 @@ export const appRouter = [
         path: '/page',
         icon: 'ios-paper',
         title: '合同管理',
+        access: [0,1],
         name: 'page',
         component: Main,
         children: [
-            { path: 'index', title: '合同管理', name: 'page_index', component: resolve => { require(['@/views/page/page.vue'], resolve); } }
+            { path: 'index', title: '合同管理', name: 'contract_index', component: resolve => { require(['@/views/page/contract.vue'], resolve); } }
         ]
     },
     {
@@ -158,6 +166,7 @@ export const appRouter = [
         icon:'ios-paper',
         title:'运营分析',
         name:'OperationAnaly',
+        access: [0,1],
         component:Main,
         children:[
              {
@@ -187,6 +196,7 @@ export const appRouter = [
         path:'/Sysmanage',
         icon:'ios-paper',
         title:'系统管理',
+        access: 0,
         name:'Sysmanage',
         component:Main,
         children:[

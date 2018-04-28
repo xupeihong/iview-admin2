@@ -1,14 +1,14 @@
 <template>
 	<div>
-		 <Table border :columns="columns7" :data="data6"></Table>
+		<Table border :columns="columns7" :data="data6"></Table>
 	</div>
 </template>
 <script>
-	export default {
-		name:'borrow',
+	export default{
+		name:'confirm',
 		data(){
 			return{
-				 columns7: [
+                columns7: [
                     {
                         title: '渠道',
                         key: 'channel',
@@ -43,36 +43,40 @@
                         key: 'pid'
                     },
                     {
-                        title: '申请时间',
+                    	title: '还款类型',
+                        key: 'backtype'
+                    },
+                    {
+                        title: '实还金额',
+                        key: 'realmoney'
+                    },
+                    
+                    {
+                        title: '实还本金',
+                        key: 'realbenjin'
+                    },
+                    {
+                        title: '应还利息',
+                        key: 'reallixi'
+                    },                
+                                     
+                    {
+                        title: '实付罚息',
+                        key: 'realproy'
+                    },
+                    {
+                        title: '申请日期',
                         key: 'stime'
                     },
+
                     {
-                        title: '申请金额',
-                        key: 'smoney'
+                        title: '还款日期',
+                        key: 'btime'
                     },
+
                     {
-                        title: '可用额度',
-                        key: 'avablemoney'
-                    },
-                    {
-                        title: '融资期限',
-                        key: 'timelimt'
-                    },
-                    {
-                        title: '还款方式',
-                        key: 'way'
-                    },
-                    {
-                        title: '用款时间',
-                        key: 'usetime'
-                    },
-                    {
-                        title: '应还金额',
-                        key: 'backmoney'
-                    },
-                    {
-                        title: '服务费',
-                        key: 'fee'
+                        title: '确认日期',
+                        key: 'oktime'
                     },
                     {
                         title: '状态',
@@ -81,7 +85,7 @@
                     {
                         title: '操作',
                         key: 'action',
-                        width: 150,
+                        width: 180,
                         align: 'center',
                         render: (h, params) => {
                             return h('div', [
@@ -100,17 +104,37 @@
                                         }
                                     }
                                 }, '详情'),
-                                h('Button', {
+                                 h('Button', {
                                     props: {
-                                        type: 'error',
+                                        type: 'default',
                                         size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
                                     },
                                     on: {
                                         click: () => {
-                                            this.remove(params.index)
+                                            this.show(params.index)
+                                           
                                         }
                                     }
-                                }, '审批')
+                                }, '确认'),
+                                  h('Button', {
+                                    props: {
+                                        type: 'default',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                           
+                                        }
+                                    }
+                                }, '退回')
+                                
                             ]);
                         }
                     }
@@ -120,43 +144,43 @@
                         channel: '亿海蓝',
                         cname: '亿海蓝公司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
-                        smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
-                        backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backtype:'批量还款',
+                        realmoney:50,
+                        realbenjin:2000,
+                        reallixi:200,
+                        realproy:200,
+                        stime:'2018-2-23',                  
+                        btime:'2018-2-23',
+                        oktime:'2018-2-25',
+                        state:'待确认'
                     },
                     {
-                        channel: '亿海蓝erew',
-                        cname: '亿海蓝321公司',
+                        channel: '亿海蓝',
+                        cname: '亿海rerr蓝公司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
-                        smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
-                        backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backtype:'批量还款',
+                        realmoney:50,
+                        realbenjin:2000,
+                        reallixi:200,
+                        realproy:200,
+                        stime:'2018-2-23',                  
+                        btime:'2018-2-23',
+                        oktime:'2018-2-25',
+                        state:'待确认'
                     },
                     {
-                        channel: '亿海蓝fds',
-                        cname: '亿海蓝公司32',
+                        channel: '亿海蓝',
+                        cname: '亿海蓝公rere司',
                         pid: '4565463323453No.1',
-                        stime:'2018-3-5',
-                        smoney:50000,
-                        avablemoney:50000,
-                        timelimt:'3月',
-                        way:'按月还息',
-                        usetime:'2018-5-8',
-                        backmoney:2000,
-                        fee:200,
-                        state:'待审批'
+                        backtype:'批量还款',
+                        realmoney:50,
+                        realbenjin:2000,
+                        reallixi:200,
+                        realproy:200,
+                        stime:'2018-2-23',                  
+                        btime:'2018-2-23',
+                        oktime:'2018-2-25',
+                        state:'待确认'
                     }
                 ]
 			}
